@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+require "toy_robot_2024"
+
+data_file_path = ARGV[0]
+
+board = ToyRobot2024::Board.new(x_size: ToyRobot2024::BOARD_SIZE[:x], y_size: ToyRobot2024::BOARD_SIZE[:y])
+interpreted_moves = ToyRobot2024::FileInterpreter.new(IO.foreach("#{data_file_path}"))
+outputer = ToyRobot2024::TerminalOutput.new
+app = ToyRobot2024::App.new(board, interpreted_moves, outputer)
+
+app.run
