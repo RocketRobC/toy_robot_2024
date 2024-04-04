@@ -9,6 +9,5 @@ require_relative "toy_robot_2024/terminal_output"
 
 module ToyRobot2024
   class Error < StandardError; end
-  # Your code goes here...
   BOARD_SIZE = { x: 4, y: 4 }
 end
